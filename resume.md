@@ -58,8 +58,8 @@ api做开发，这套开发框架主要是为功能机打造的。自己在里�
 
 ### 2012.6 ~ 至今 zhe800
 自己到这个时候已经工作四五年了，凭着朦胧的感觉觉得自己该去互联网公司，于是去了zhe800。在当时这是一个初创公司，看中个人的
-学习能力而不是web开发经验，于是自己从头学起了web开发，刚开始用的是`ruby on rails`，当时号称是最快最全的web全栈框架。一切都
-从头学起：http, mysql, mongodb, memcached, redis, linux, nginx, css, javascript...
+学习能力而不是web开发经验，于是自己从头学起了web开发，刚开始用的是`ruby on rails`，当时号称是开发效率最高功能最全的web
+全栈框架。一切都从头学起：http, mysql, mongodb, memcached, redis, linux, nginx, css, javascript...
 
 做了3年左右RoR开发，虽然都是做功能实现各种业务需求，但是也算一个熟手了，网站后端开发基本都清楚怎么回事。各种技术术语和框架
 也越听越多，越用越多：MQ/kafka, zookeeper, thrift, 分布式系统, 服务化, 微服务, docker...
