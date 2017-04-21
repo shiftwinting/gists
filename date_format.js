@@ -14,55 +14,17 @@
  */
 Date.prototype.toString = function(format) {
   var validPartsReg = /(yy)?yy|M?M|d?d|h?h|m?m|s?s/g
-  var res = '';
-  var oldLastIndex = 0;
-  var match;
-  var matchPart;
-  var matchPartFormat;
-
-  var maps = {
-    M: 'getMonth',
-    d: 'getDate',
-    h: 'getHours',
-    m: 'getMinutes',
-    s: 'getSeconds'
-  };
-
+  var res = '', oldLastIndex = 0, match, matchPartFormat; 
+  var maps = { y: 'getFullYear', M: 'getMonth', d: 'getDate', h: 'getHours', m: 'getMinutes', s: 'getSeconds' };
   while (match = validPartsReg.exec(format)) {
     res += format.slice(oldLastIndex, match.index);
-    matchPart = match[0];
-
-    switch (matchPart[0]) {
-      case 'y':
-        matchPartFormat = this.getFullYear().toString();
-
-        if (matchPart.length == 2) {
-          matchPartFormat = matchPartFormat.slice(2);
-        }
-
-        break;
-      case 'M':
-      case 'd':
-      case 'h':
-      case 'm':
-      case 's':
-        matchPartFormat = this[maps[matchPart[0]]].call(this);
-
-        if (matchPart[0] == 'M') matchPartFormat += 1;
-
-        if (matchPart.length == 2 && matchPartFormat < 10) {
-          matchPartFormat = '0' + matchPartFormat;
-        }
-
-        break;
-      default:
-        throw new Error('invalid formt part: ' + matchPart);
-    }
-
+    matchPartFormat = this[maps[match[0][0]]].call(this);
+    if (match[0][0] == 'M') matchPartFormat += 1;
+    if (match[0].length == 2 && matchPartFormat < 10) matchPartFormat = '0' + matchPartFormat;
+    if (match[0].length == 2 && match[0][0] == 'y')   matchPartFormat = matchPartFormat.toString().slice(2);
     res += matchPartFormat;
     oldLastIndex = validPartsReg.lastIndex;
   }
-
   res += format.slice(oldLastIndex);
   return res;
 };
